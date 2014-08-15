@@ -1,0 +1,45 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf8">
+<meta name="viewport" content="width=device-width">
+<title>Planet Birmingham</title>
+<TMPL_IF feedtype>
+<link rel="alternate" href="<TMPL_VAR feed ESCAPE="HTML">" title="<TMPL_VAR channel_title_plain ESCAPE="HTML">" type="application/<TMPL_VAR feedtype>+xml">
+</TMPL_IF>
+<style>
+body {
+    background: #f7f6f5;
+    color: #222;
+    font-family: sans-serif;
+}
+h3 { background: rgba(0,0,0,0.1); }
+</style>
+</head>
+<body>
+<h1>Planet Birmingham</h1>
+<p>Starring: 
+<TMPL_LOOP Channels>
+<TMPL_IF __LAST__> and </TMPL_IF><a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_VAR name></a><TMPL_IF __LAST__>.</TMPL_IF><TMPL_UNLESS __LAST__>, </TMPL_UNLESS __LAST__>
+</TMPL_LOOP>
+
+<p><strong>Last updated:</strong> <TMPL_VAR date> (<em>All times are UTC.</em>)</p>
+
+<TMPL_LOOP Items>
+<TMPL_IF new_date>
+<h2><TMPL_VAR new_date></h2>
+</TMPL_IF>
+
+<div class="entry">
+    <TMPL_IF title>
+        <h3><a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_VAR title></a><TMPL_IF author>, by <TMPL_VAR author ESCAPE="HTML"></TMPL_IF></h3>
+    </TMPL_IF>
+    <div class="content">
+    <TMPL_VAR content>
+    </div>
+</div>
+</TMPL_LOOP>
+
+</body>
+</html>
