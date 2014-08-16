@@ -75,6 +75,10 @@
         background-color: rgba(135, 135, 135, 0.50);
         text-decoration: none;
       }
+
+      .copyright {
+        text-align: center;
+      }
     </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -137,10 +141,12 @@
         </div>
         <div class="col-md-3">
 
-          <p>All the Birmingham-flavoured tech content on this page is supplied by local bloggers.</p>
+          <h2 class="sr-only">Authors</h2>
+
+          <p>All the Birmingham-flavoured tech content on this page is supplied by local bloggers:</p>
           <ul class="nav nav-pills nav-stacked">
             <TMPL_LOOP Channels>
-              <li><a href="<TMPL_VAR link ESCAPE="HTML">"><span class="glyphicon glyphicon-user"></span> <TMPL_VAR name></a></li>
+              <li><a href="<TMPL_VAR link ESCAPE="HTML">"><span class="glyphicon glyphicon-<TMPL_VAR glyphicon>"></span> <TMPL_VAR name></a></li>
             </TMPL_LOOP>
           </ul>
 
@@ -152,6 +158,8 @@
         </div>
       </div>
     </div>
+
+    <p class="copyright">All content, trademarks, artwork, and associated imagery are trademarks and/or copyright material of their respective owners. All rights reserved.</p>
 
     <a href="#" class="back-to-top"><span class="glyphicon glyphicon-arrow-up"></span> Back to Top</a>
 
