@@ -1,45 +1,112 @@
-<!doctype html>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf8">
-<meta name="viewport" content="width=device-width">
-<title>Planet Birmingham</title>
-<TMPL_IF feedtype>
-<link rel="alternate" href="<TMPL_VAR feed ESCAPE="HTML">" title="<TMPL_VAR channel_title_plain ESCAPE="HTML">" type="application/<TMPL_VAR feedtype>+xml">
-</TMPL_IF>
-<style>
-body {
-    background: #f7f6f5;
-    color: #222;
-    font-family: sans-serif;
-}
-h3 { background: rgba(0,0,0,0.1); }
-</style>
-</head>
-<body>
-<h1>Planet Birmingham</h1>
-<p>Starring: 
-<TMPL_LOOP Channels>
-<TMPL_IF __LAST__> and </TMPL_IF><a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_VAR name></a><TMPL_IF __LAST__>.</TMPL_IF><TMPL_UNLESS __LAST__>, </TMPL_UNLESS __LAST__>
-</TMPL_LOOP>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Planet Birmingham (part of the Birmingham.IO Network)</title>
 
-<p><strong>Last updated:</strong> <TMPL_VAR date> (<em>All times are UTC.</em>)</p>
-
-<TMPL_LOOP Items>
-<TMPL_IF new_date>
-<h2><TMPL_VAR new_date></h2>
-</TMPL_IF>
-
-<div class="entry">
-    <TMPL_IF title>
-        <h3><a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_VAR title></a><TMPL_IF author>, by <TMPL_VAR author ESCAPE="HTML"></TMPL_IF></h3>
+    <TMPL_IF feedtype>
+      <link rel="alternate" href="<TMPL_VAR feed ESCAPE="HTML">" title="<TMPL_VAR channel_title_plain ESCAPE="HTML">" type="application/<TMPL_VAR feedtype>+xml">
     </TMPL_IF>
-    <div class="content">
-    <TMPL_VAR content>
-    </div>
-</div>
-</TMPL_LOOP>
 
-</body>
+    <!-- Bootstrap -->
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      body {
+        padding-top: 70px;
+      }
+      img {
+        max-width: 100% !important;
+        height: auto;
+      }
+      .panel-body {
+        overflow: auto;
+      }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Planet Birmingham</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://birmingham.io/">Return to Birmingham.IO</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+    <div class="container">
+      
+    <div class="row">
+      <div class="col-md-9">
+        
+        <p><strong>Last updated:</strong> <TMPL_VAR date> (<em>All times are UTC.</em>)</p>
+
+        <TMPL_LOOP Items>
+          <TMPL_IF new_date>
+            <h2><TMPL_VAR new_date></h2>
+          </TMPL_IF>
+
+          <div class="panel panel-default">
+            <TMPL_IF title>
+              <div class="panel-heading">
+                <h3 class="panel-title"><a href="<TMPL_VAR link ESCAPE="HTML">">
+                  <TMPL_VAR title></a><TMPL_IF author> <small>by <TMPL_VAR author ESCAPE="HTML"></small></TMPL_IF>
+                </h3>
+              </div>
+            </TMPL_IF>
+
+            <div class="panel-body">
+              <TMPL_VAR content>
+            </div>
+          </div>
+        </TMPL_LOOP>
+
+      </div>
+      <div class="col-md-3">
+
+        <p>All the Birmingham-flavoured tech content on this page is supplied by local bloggers.</p>
+        <ul class="nav nav-pills nav-stacked">
+          <TMPL_LOOP Channels>
+            <li><a href="<TMPL_VAR link ESCAPE="HTML">"><span class="glyphicon glyphicon-user"></span> <TMPL_VAR name></a></li>
+          </TMPL_LOOP>
+        </ul>
+
+        <div class="well">
+          <p><b>Want your blog's content featured here?</b></p>
+          <p>For information on submitting your blog for inclusion on this list, <a href="http://talk.birmingham.io/t/planet-birmingham-blog-submission-list/192">visit our blog submission page on Birmingham.IO</a>.</p>
+        </div>
+
+      </div>
+    </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </body>
 </html>
