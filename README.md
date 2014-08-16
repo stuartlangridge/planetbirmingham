@@ -5,20 +5,20 @@ Instructions
 
 Initial setup:
 
-1. mkdir planet.birmingham.io
-2. cd planet.birmingham.io
-3. git clone https://github.com/rubys/venus.git
-4. git clone https://github.com/BirminghamIO/planet.birmingham.io
+1. `mkdir planet.birmingham.io`
+2. `cd planet.birmingham.io`
+3. `git clone https://github.com/rubys/venus.git`
+4. `git clone https://github.com/BirminghamIO/planet.birmingham.io`
 
 Possible extra stuff
 
-1. sudo apt-get install xsltproc
+1. `sudo apt-get install xsltproc`
 
 Building the pages
 
-1. cd planet.birmingham.io
-2. python ../venus/planet.py birminghamio.ini
-3. firefox html/index.html
+1. `cd planet.birmingham.io`
+2. `python ../venus/planet.py birminghamio.ini`
+3. `firefox html/index.html`
 
 (Once happy that this works, stick "`cd /path/to/planet.birmingham.io/planet.birmingham.io && python ../venus/planet.py birminghamio.ini`" in cron hourly or something.)
 
