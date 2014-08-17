@@ -1,0 +1,9 @@
+{
+  "name": "planet.birmingham.io",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.8.7",
+    "gulp-shell": "^0.2.9"
+  },
+  "private": true
+}
