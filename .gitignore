@@ -1,3 +1,4 @@
-cache/*
-html/*
+venus/*
 *.tmplc
+node_modules
+.DS_Store
